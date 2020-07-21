@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Description-->
+    
+        <meta name="description" content="iDandelion">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Dan Liu">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="My Personal Website (GitHub+Hexo)">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Dan Liu">
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content>
+    
+
+    <!-- Title -->
+    
+    <title>My Personal Website (GitHub+Hexo) - Dan Liu</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/sass/main.css">
+
+    <!--[if lt IE 8]>
+        <script src="/js/ie/html5shiv.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="/sass/ie8.css">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="/sass/ie9.css">
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.png" alt="" /></span><span class="title">Dan Liu</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Portfolio</a>
+            </li>
+        
+            <li>
+                <a href="/tags/blog">Blog</a>
+            </li>
+        
+            <li>
+                <a href="/2019/12/23/about">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>My Personal Website (GitHub+Hexo)</h1>
+
+
+    <span class="image main"><img src="/assets/pw5.png" alt="" /></span>
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>This personal website is built mainly by using the blog framework <a href="https://hexo.io/" title=" " target="_blank" rel="noopener">Hexo</a> and github. Here are some notes.</p>
+<h2 id="Steps-to-build-this-website"><a href="#Steps-to-build-this-website" class="headerlink" title="Steps to build this website"></a>Steps to build this website</h2><ul>
+<li><p>Get a personal domain name<br>The domain name “idandelion.com” is gotten from the name server Namesilo. I chose this name since I like the flower dandelion and it contains my name as well, and of course, it is easy to remember.   </p>
+</li>
+<li><p>Build a new repository in GitHub<br>Build a repository with the name “username.github.io”, for example, mine is danliudl.github.io.</p>
+</li>
+<li><p>Install Git/Node.js/Hexo<br>I already have git and node.js in my computer, so I only need to install Hexo:</p>
+<pre><code>npm install hexo-cli -g
+hexo init blog
+cd blog</code></pre></li>
+<li><p>Deploy website in GitHub<br>This step is to deploy the hexo website in GitHub, first install the plugin hexo-deployer-git:</p>
+<pre><code>npm install hexo-deployer-git --save</code></pre><p>then edit the file _config.yml:</p>
+<pre><code>deploy:
+type: git
+repo: https://github.com/Danliudl/danliudl.github.io.git
+branch: master</code></pre></li>
+<li><p>Bind the personal domain name<br>Now I can use the url <a href="https://danliudl.github.io" target="_blank" rel="noopener">https://danliudl.github.io</a> to reach the website. However, I prefer to use my own domain name, so I edited the dns records in the name server and then changed the setting of GitHub to add the custom domain. Till now, I can use the personal domain name to reach the website.</p>
+</li>
+<li><p>Change the website theme<br>Hexo provides customizable themes for users, here I used the theme <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank" rel="noopener">Phantom</a>.</p>
+</li>
+<li><p>Customize the website</p>
+<ul>
+<li>Design and add the logo to the website</li>
+<li>Modify the code to support adding new categories</li>
+<li>Add responsive videos</li>
+<li>Add “Back to Top” button</li>
+</ul>
+</li>
+<li><p>Useful tools</p>
+<ul>
+<li><a href="https://tinypng.com/" target="_blank" rel="noopener">TinyPNG</a> : to compress PNG images while preserving transparency to get better loading performance of webpages</li>
+<li>FireShot: chrome plugin, to capture full web page screenshots</li>
+<li>Browsersync: time-saving synchronized browser testing</li>
+</ul>
+</li>
+</ul>
+<p>Reference:<br><a href="https://hexo.io/docs/" target="_blank" rel="noopener">https://hexo.io/docs/</a><br><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249</a><br><a href="http://www.leojuly.top/2018/11/26/Hexo-browsersync/" target="_blank" rel="noopener">http://www.leojuly.top/2018/11/26/Hexo-browsersync/</a></p>
+<hr>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/blog/" class="button small">blog</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>Hello</h2>
+            <div>
+                Feel free to contact me via <a> ldraylin@163.com </a> :)
+            </div>
+        </section>
+        <section>
+            <h2>Follow me</h2>
+            <ul class="icons">
+                
+                    <li><a href="mailto:ldraylin@163.com" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="https://www.linkedin.com/in/dan-liu-509b6016a/" class="icon style2 fa-linkedin" target="_blank" ><span class="label">Linkedin</span></a></li>
+                
+                
+                    <li><a href="https://github.com/Danliudl" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                 
+                
+                
+                
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; 2019. All rights reserved</li>
+            <li>Powered by: <a href="https://hexo.io/" target="_blank">HEXO</a></li>
+            <li>Theme: <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">Phantom</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- skel -->
+<script src="/js/skel.min.js"></script>
+
+<!-- Custom Code -->
+<script src="/js/util.js"></script>
+
+<!--[if lte IE 8]>
+<script src="/js/ie/respond.min.js"></script>
+<![endif]-->
+
+<!-- Custom Code -->
+<script src="/js/main.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+<div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+    <a title="totop"><img src="/images/scrollup.png"/></a>
+    </div>
+<script src="/js/totop.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Description-->
+    
+        <meta name="description" content="iDandelion">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Dan Liu">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="GameHolic">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Dan Liu">
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content>
+    
+
+    <!-- Title -->
+    
+    <title>GameHolic - Dan Liu</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/sass/main.css">
+
+    <!--[if lt IE 8]>
+        <script src="/js/ie/html5shiv.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="/sass/ie8.css">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="/sass/ie9.css">
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.png" alt="" /></span><span class="title">Dan Liu</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Portfolio</a>
+            </li>
+        
+            <li>
+                <a href="/tags/blog">Blog</a>
+            </li>
+        
+            <li>
+                <a href="/2019/12/23/about">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>GameHolic</h1>
+
+
+    <span class="image main"><img src="/assets/game.png" alt="" /></span>
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p><code>Web Development</code> <code>HTML/CSS</code>  <code>React</code> <code>UI/UX Design</code> </p>
+<p>The website can be viewed here: <a href="https://game-holic-590ee.firebaseapp.com/" title="run the application" target="_blank" rel="noopener"><strong>GameHolic</strong></a>. And the github repository can be accessed <a href="https://github.com/RuoyanMeng/Game-Holic" title="link to github " target="_blank" rel="noopener">here</a>.</p>
+<blockquote>
+<h3 id="ContentS"><a href="#ContentS" class="headerlink" title="ContentS"></a>ContentS</h3><p><a href="#background">Background</a><br><a href="#framework-and-api">Framework and API</a><br><a href="#design-and-development">Design and Development</a><br><a href="#conclusion">Conclusion</a></p>
+</blockquote>
+<p><span id="background"></span></p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>GameHolic is a web application where users can search for trendy games and view detailed information of games. I did this project with another 2 students during the course Interaction Programming and the Dynamic Web (KTH University, Sweden, 2019). The goal of this project is to practice web development.</p>
+<p><span id="framework-and-api"></span></p>
+<h2 id="Technology-Stack"><a href="#Technology-Stack" class="headerlink" title="Technology Stack"></a>Technology Stack</h2><ul>
+<li><strong>Framework</strong><br>React, Redux</li>
+<li><strong>API</strong><br><a href="https://www.giantbomb.com/api/" target="_blank" rel="noopener">IGDB API</a></li>
+<li><strong>Library</strong><br><a href="https://ant.design/" title=" " target="_blank" rel="noopener">Ant Design of React</a>, <a href="https://github.com/atlassian/react-beautiful-dnd" title=" " target="_blank" rel="noopener">react-beautiful-dnd</a>, Tachyons</li>
+</ul>
+<p><span id="design-and-development"></span></p>
+<h2 id="Design-and-Development"><a href="#Design-and-Development" class="headerlink" title="Design and Development"></a>Design and Development</h2><p>In this project, each member of the team was responsible for different components: the main architecture and most of the function codes were done by one of our team member Ruoyan, then I and the other member Kehan were mainly responsible for the layouts and styles part, as well as some other interaction parts. </p>
+<p>I was responsible for the layouts, styles, and basic interaction codes of the following components: Header.js / Main.js / Search.js / SingleGame.js / gameDetails.js / GameGrid.js, as well as gamegrid.scss / header.scss / main.scss / search.scss / singlegame.scss. This website mainly used the Ant Design Components, and the followings are the main design and development work done by me:</p>
+<ul>
+<li><p><strong>Homepage</strong><br>The homepage is consisted of 4 components: header (logo/sign in, sign out button), search, banner and game grid.<br><img src="hp.png" width="49%"> <img src="hp2.png" width="49%"><br>The main color of the website is black since we want it to be simple and cool. The big background picture of Batman is designed to catch user’s eye when they open the website. Then the game grid is designed to recommend trendy games (here sorted by popularity) to users.</p>
+<p>The webpages were responsive by using the 24 Grids System of Ant Design:</p>
+<pre><code>&lt;Row&gt;
+    &lt;Col xs={24} sm={24} md={20} lg={16} xxl={12}&gt;
+      &lt;div className=&quot;banner-info&quot;&gt;
+        &lt;h1&gt;Here, plenty of trendy games for you!&lt;/h1&gt;
+        &lt;h2&gt;
+          Start discovering fancy games and getting your own
+          collections now! You could find everything you need!
+        &lt;/h2&gt;
+      &lt;/div&gt;
+    &lt;/Col&gt;
+&lt;/Row&gt;</code></pre></li>
+<li><p><strong>Game Detail Page</strong><br>In the game detail page, users can check the cover image and introduction of the game. There is also a circle bar to show the recommendation level of the game. The button under the texts is used to add the game to different lists of users account, e.g. wish list.<br><img src="gd.png" width="49%"> <img src="gd3.png" width="49%"><br>Below this, there is some other information of the game: keywords, screenshots and comments. The keywords can also be clicked and then will lead users to the search results page showing games that share the same keywords. I added the screenshots part since it can help users better know the game, and luckily I can fetch images with high quality through the API. I also added comments part to provide more information and interactions for users.<br><img src="gd1.png" width="49%"> <img src="gd2.png" width="49%"> </p>
+</li>
+<li><p><strong>Search Page</strong><br>The search results show the cover image, name and summary of the game, and users would be guided to game detail page by clicking the items.<br><img src="se.png" width="70%"><br></p>
+</li>
+<li><p><strong>Wish List</strong><br>In this part, users are allowed to drag and drop items in personal lists to move or reorder them, as well as delete the item from the list directly by hovering the mouse over it. Here I implemented the drag and drop effect by using react-beautiful-dnd.<br><img src="wl.png" width="70%"><br></p>
+</li>
+</ul>
+<p><span id="conclusion"></span></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>By doing this project, I got to know and practice web development, and I got a good chance to understand the knowledge and application of React/HTML/CSS.</p>
+<hr>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/portfolio/" class="button small">portfolio</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>Hello</h2>
+            <div>
+                Feel free to contact me via <a> ldraylin@163.com </a> :)
+            </div>
+        </section>
+        <section>
+            <h2>Follow me</h2>
+            <ul class="icons">
+                
+                    <li><a href="mailto:ldraylin@163.com" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="https://www.linkedin.com/in/dan-liu-509b6016a/" class="icon style2 fa-linkedin" target="_blank" ><span class="label">Linkedin</span></a></li>
+                
+                
+                    <li><a href="https://github.com/Danliudl" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                 
+                
+                
+                
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; 2019. All rights reserved</li>
+            <li>Powered by: <a href="https://hexo.io/" target="_blank">HEXO</a></li>
+            <li>Theme: <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">Phantom</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- skel -->
+<script src="/js/skel.min.js"></script>
+
+<!-- Custom Code -->
+<script src="/js/util.js"></script>
+
+<!--[if lte IE 8]>
+<script src="/js/ie/respond.min.js"></script>
+<![endif]-->
+
+<!-- Custom Code -->
+<script src="/js/main.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+<div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+    <a title="totop"><img src="/images/scrollup.png"/></a>
+    </div>
+<script src="/js/totop.js"></script>
+
+</body>
+
+</html>
