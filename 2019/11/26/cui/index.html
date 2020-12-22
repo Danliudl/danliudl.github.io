@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Description-->
+    
+        <meta name="description" content="iDandelion">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Dan Liu">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Computational UI Design (Course Project)">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Liu&#39;s Portfolio">
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content>
+    
+
+    <!-- Title -->
+    
+    <title>Computational UI Design (Course Project) - Liu&#39;s Portfolio</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/sass/main.css">
+
+    <!--[if lt IE 8]>
+        <script src="/js/ie/html5shiv.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="/sass/ie8.css">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="/sass/ie9.css">
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <!-- <span class="symbol"><img src="/images/logo.svg" alt="" /></span> -->
+            <span class="title">Liu's Portfolio</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Portfolio</a>
+            </li>
+        
+            <li>
+                <a href="/tags/blog">Blog</a>
+            </li>
+        
+            <li>
+                <a href="/2019/12/23/about">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Computational UI Design (Course Project)</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p><code>Computational interaction</code> <code>Machine Learning</code> <code>Python</code> </p>
+<p>I took the course Computational User Interface Design in Aalto University (Finland, 2019), and got to know several interesting topics addressing the use of algorithms and mathematical models to explain and enhance human-computer interaction. I learned skills to formulate design and interaction problems and derive solutions by analysis, simulation, and optimization with Python. Here are 2 main tasks I did during the course:</p>
+<blockquote>
+<h3 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h3><p><a href="#modelling">Human Performance Modelling: Novice-to-expert Transition</a><br><a href="#bandits">Multi-Armed Bandits Problem and the ε-Greedy Solver</a><br><a href="#conclusion">Conclusion</a></p>
+</blockquote>
+<p><span id="modelling"></span></p>
+<h2 id="Human-Performance-Modelling-Novice-to-expert-Transition"><a href="#Human-Performance-Modelling-Novice-to-expert-Transition" class="headerlink" title="Human Performance Modelling: Novice-to-expert Transition"></a>Human Performance Modelling: Novice-to-expert Transition</h2><ul>
+<li><p><strong>Goal</strong><br>The goal of this task is to model the transition of users from a novice user to a skilled user while clicking the items in a linear menu.<br><img src="m00.png" width="100%"><br></p>
+</li>
+<li><p><strong>Modelling the menu selection time</strong><br>The selection time is consisted of two parts: search time and pointing time. The pointing time can be calculated by using the Fitts’ Law model, thus the model predicting the selection time Ti for each item i can be calculated by:</p>
+<pre><code>Ti = T(search) + T(pointing) = T(search) + T(Fitts’ Law)</code></pre></li>
+<li><p><strong>Modelling users’ transition from novice to expert</strong><br>In order to model the transition process from novice to expert, I decide to use the frequency ti to model the user’s expertise ei with menu item i:</p>
+<pre><code>ei = 1 – 1/ti</code></pre><p>Here, ei is the user’s expertise with that item, from 0 (complete novice) to 1 (complete expert). Then I use ei to model the transition process:</p>
+<pre><code>Ti = (1-ei) * T(search-novice) + ei * T(search-expert) + T(pointing)</code></pre><p><img src="m02.png" width="100%"><br></p>
+</li>
+<li><p><strong>Modelling users’ strategy-change</strong><br>The strategy-change I used is about shifting from a scanning-based search to a recall-based search, since when users gain expertise, they do not need to scan all the items of the menu that they have tried for several times, instead, they can search for specific items based on their memory. The model will switch to recall as soon as it becomes more efficient than using scanning.<br><img src="m01.png" width="100%"><br></p>
+</li>
+<li><p><strong>Plotting the change</strong><br>Plotting the change of expected selection time as a function of experience:<br><img src="m03.png" width="100%"><br><br>I notice that in the results, the item “-” in the menu is not very useful (with zero frequency and high selection time) and thus I remove them from the plot. The plot seems to be clearer this time. As shown in the plot, the overall trend shows that items with lower frequency have higher expected search time, which means when users become more expertise, the expected selection time of the items becomes shorter, and the selection time tends to be logarithmic with users’ transition from novice to expert.<br><img src="m04.png" width="100%"><br></p>
+</li>
+</ul>
+<p><span id="bandits"></span></p>
+<h2 id="Multi-Armed-Bandits-Problem-and-the-ε-Greedy-Solver"><a href="#Multi-Armed-Bandits-Problem-and-the-ε-Greedy-Solver" class="headerlink" title="Multi-Armed Bandits Problem and the ε-Greedy Solver"></a>Multi-Armed Bandits Problem and the ε-Greedy Solver</h2><ul>
+<li><p><strong>Multi-Armed Bandits</strong><br>The multi-armed bandits are always used to address the tradeoff between exploitation and exploration, aiming to maximite cumulative reward. There are many applications, for example, testing design variations by dynamically allocate users to variations so that more users see optimal designs and inferior designs ruled out faster.</p>
+</li>
+<li><p><strong>Update the Bandit to address varying rewards</strong><br>There are several solver strategies for a bandit problem to choose the arm, for example, Random, Greedy, ϵ-Greedy, UCB1 and Thompson Sampling. In this case, I was asked to update the Bandit problem such that every arm returns a different reward and create different instances to test the solvers.<br><img src="b00.png" width="100%"><br><br>As shown in the results, the Random and the Greedy solvers are not influenced by setting different reward of each item, and that probably because they do not learn from previous history and not change the strategy to select the arm each time (Figure 2&amp;3). The UCB1 and Thompson Sampling algorithm performs better when the weight of the reward of item with higher reward probability becomes bigger (Figure 6&amp;4&amp;5&amp;2).</p>
+</li>
+<li><p><strong>Improve the ε-Greedy Solver</strong><br>The weakness of Epsilon-Greedy strategies is that they include random noise continually no matter how many examples they have tried. Based on this, it would be better for Epsilon-Greedy strategies to settle on an optimal solution and continue to exploit it. In this case, the <a href="https://www.datahubbs.com/multi_armed_bandits_reinforcement_learning_1/" target="_blank" rel="noopener">Epsilon-Decay-Greedy</a> strategies introduce a new epsilon which reduces the probability of exploration with each step. The definition is:</p>
+<pre><code>ε(n) = 1 / (1 + n*β)</code></pre><p>here n is the steps counted for the arm, and β&lt;1 is set as a scaling factor to reduce the scaling rate so that there are enough opportunity for the algorithm to explore, here I use β= 1/(number of arms); +1 is used to prevent infinities exploring:<br><img src="m06.png" width="100%"><br><br>As shown in the result below, the Epsilon-Decay-Greedy strategy perform better than the original Epsilon-Greedy strategy since it sticks to the optimal action once it is found.<br><img src="m05.png" width="100%"><br></p>
+</li>
+</ul>
+<p><span id="conclusion"></span></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>The workload for this course is really heavy, but I did learn interesting things from it. Computational UI design is a new approach for design, which offers proofs for design solutions and increases the efficiency, enjoyability and robustness of interaction. It is not aiming to replace the designers but to free up designers to be more creative.</p>
+<hr>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/blog/" class="button small">blog</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>Hello</h2>
+            <div>
+                Feel free to contact me via <a> ldraylin@163.com </a> :)
+            </div>
+        </section>
+        <section>
+            <h2>Follow me</h2>
+            <ul class="icons">
+                
+                    <li><a href="mailto:ldraylin@163.com" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="https://www.linkedin.com/in/dan-liu-509b6016a/" class="icon style2 fa-linkedin" target="_blank" ><span class="label">Linkedin</span></a></li>
+                
+                
+                    <li><a href="https://github.com/Danliudl" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                 
+                
+                
+                
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; 2019. All rights reserved</li>
+            <li>Powered by: <a href="https://hexo.io/" target="_blank">HEXO</a></li>
+            <li>Theme: <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">Phantom</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- skel -->
+<script src="/js/skel.min.js"></script>
+
+<!-- Custom Code -->
+<script src="/js/util.js"></script>
+
+<!--[if lte IE 8]>
+<script src="/js/ie/respond.min.js"></script>
+<![endif]-->
+
+<!-- Custom Code -->
+<script src="/js/main.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+<div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+    <a title="totop"><img src="/images/scrollup.png"/></a>
+    </div>
+<script src="/js/totop.js"></script>
+
+</body>
+
+</html>
